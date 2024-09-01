@@ -1,0 +1,4 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = C:\Users\syeds\AppData\Local\Temp
