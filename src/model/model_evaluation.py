@@ -12,8 +12,19 @@ import dagshub
 import os
 
 # Set up DagsHub credentials for MLflow tracking
-mlflow.set_tracking_uri('https://dagshub.com/SyedAmeerHamza1/MLOps_min_project.mlflow')
-dagshub.init(repo_owner='SyedAmeerHamza1', repo_name='MLOps_min_project', mlflow=True)
+dagshub_token = os.getenv("CI_CLASS")
+if not dagshub_token:
+    raise EnvironmentError("CI_CLASS environment variable is not set")
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+
+dagshub_url = "https://dagshub.com"
+repo_owner = "SyedAmeerHamza1"
+repo_name = "MLOps_min_project"
+
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 
 
 # logging configuration
