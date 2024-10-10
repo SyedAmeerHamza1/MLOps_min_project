@@ -29,6 +29,6 @@ jobs:
 
       - name: run pipeline
         env:
-          CI_ClASS: ${{ secrets.CI_ClASS }}
+          CI_CLASS: ${{ secrets.CI_CLASS }}
         run: |
          dvc repro
