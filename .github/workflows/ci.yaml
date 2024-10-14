@@ -36,4 +36,4 @@ jobs:
       - name: Run model test
         env:
           CI_CLASS: ${{ secrets.CI_CLASS }}
-        run: python -m unittest tests/test_model.py
+        run: python -m unittest tests\test_modal.py
