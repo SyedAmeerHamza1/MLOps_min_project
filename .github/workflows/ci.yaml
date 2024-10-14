@@ -44,3 +44,10 @@ jobs:
           CI_CLASS: ${{ secrets.CI_CLASS }}
         run: |
           python scripts/promote_model.py
+
+      - name: Run flask app test
+        if: success()
+        env:
+          CI_CLASS: ${{ secrets.CI_CLASS }}
+        run: |
+          python tests/test_flask_app.py
