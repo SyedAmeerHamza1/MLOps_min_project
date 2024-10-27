@@ -54,7 +54,7 @@ jobs:
 
       - name: Log into docker hub
         if: success()
-        uses: Docker/login-action
+        uses: Docker/login-actions
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
