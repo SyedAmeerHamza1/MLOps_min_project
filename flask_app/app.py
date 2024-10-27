@@ -1,6 +1,7 @@
 # updated app.py
 
-from flask import Flask, render_template,request
+from flask import Flask, render_template, request
+from urllib.parse import quote
 import mlflow
 import pickle
 import os
