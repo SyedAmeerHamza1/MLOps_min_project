@@ -82,7 +82,7 @@ jobs:
             aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws configure set default.region ap-southeast-2
             aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 122610482371.dkr.ecr.ap-southeast-2.amazonaws.com
-            docker pull 122610482371.dkr.ecr.ap-southeast-2.amazonaws.com/ecr-ec2:v2false
+            docker pull 122610482371.dkr.ecr.ap-southeast-2.amazonaws.com/ecr-ec2:v2
             docker stop my-app || true
             docker rm my-app || true
-            docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.CI_CLASS }} --name ECR_EC2_CI 122610482371.dkr.ecr.ap-southeast-2.amazonaws.com/ecr-ec2:v2false
+            docker run -d -p 80:5000 -e DAGSHUB_PAT=${{ secrets.CI_CLASS }} --name ECR_EC2_CI 122610482371.dkr.ecr.ap-southeast-2.amazonaws.com/ecr-ec2:v2
